@@ -1,13 +1,13 @@
-USE [DatabaseName]
-GO
+use [DatabaseName]
+go
 
 -- Set ansi nulls
-SET ANSI_NULLS ON
-GO
+set ansi_nulls on
+go
 
 -- Set quoted identifier
-SET QUOTED_IDENTIFIER ON
-GO
+set quoted_identifier on
+go
 
 -- ========================
 --        File: dynamicSQL
@@ -17,14 +17,14 @@ GO
 --  Updated By: Cuates
 --     Purpose: Dynamic SQL
 -- ========================
-CREATE PROCEDURE [dbo].[dynamicSQL]
+create procedure [dbo].[dynamicSQL]
   -- Parameters
   @optionMode nvarchar(255),
   @startDate nvarchar(255) = null,
   @endDate nvarchar(255) = null,
   @columnOneString nvarchar(255) = null
-AS
-BEGIN
+as
+begin
   -- Set nocount on added to prevent extra result sets from interfering with select statements
   set nocount on
 
@@ -213,7 +213,7 @@ BEGIN
       mtn.[status] = 0'
 
       -- Check if parameter is not empty or is not null
-      if(@columnOneString != '' or @columnOneString IS NOT NULL)
+      if(@columnOneString != '' or @columnOneString is not null)
         begin
           -- Append dynamic statement variable
           set @dSQL = @dSQL + ' and mtn.columnOne = ''' + @columnOneString + ''''
@@ -222,4 +222,4 @@ BEGIN
       -- Execute dynamic statement
       exec(@dSQL)
     end
-END
+end
