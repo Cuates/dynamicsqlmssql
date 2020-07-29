@@ -25,7 +25,7 @@ create table [dbo].[MainTableName](
   [modified_date] [datetime2](7) null,
   constraint [PK_MainTableName] primary key clustered
   (
-    [columnone] asc
+    [columnOne] asc
   )with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on, fillfactor = 90) on [primary]
   ) on [primary]
 go
